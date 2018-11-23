@@ -39,7 +39,7 @@ $(document).on("click", "#rock-btn", function (event) {
 
 
     // Uploads temporary object to database
-    database.ref().set(rocky);
+    database.ref().push(rocky);
 
     // Logs everything to console
     console.log(rocky);
@@ -61,7 +61,7 @@ $("#paper-btn").on("click", function (event) {
     };
 
     // Uploads paper object to database
-    database.ref().set(papery);
+    database.ref().push(papery);
 
     // Logs everything to console
     console.log(papery);
@@ -83,7 +83,7 @@ $("#scissors-btn").on("click", function (event) {
     };
 
     // Uploads scissors object to database
-    database.ref().set(scissorsy);
+    database.ref().push(scissorsy);
 
     // Logs everything to console
     console.log(scissorsy);
@@ -105,7 +105,7 @@ $("#rock2-btn").on("click", function (event) {
     };
 
     // Uploads rock object to database
-    database.ref().set(rocky);
+    database.ref().push(rocky);
 
     // Logs everything to console
     console.log(rocky);
@@ -128,7 +128,7 @@ $("#paper2-btn").on("click", function (event) {
     };
 
     // Uploads paper object to database
-    database.ref().set(papery);
+    database.ref().push(papery);
 
     // Logs everything to console
     console.log(papery);
@@ -149,7 +149,7 @@ $("#scissors2-btn").on("click", function (event) {
     };
 
     // Uploads scissors object to database
-    database.ref().set(scissorsy);
+    database.ref().push(scissorsy);
 
     // Logs everything to console
     console.log(scissorsy);
