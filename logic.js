@@ -35,11 +35,10 @@ $(document).on("click", "#rock-btn", function (event) {
     // Creates local "temporary" object for holding rps data
     var rocky = {
         player1: rock,
-        player2: twoChose,
     };
 
 
-    // Uploads employee data to the database
+    // Uploads temporary object to database
     database.ref().set(rocky);
 
     // Logs everything to console
@@ -59,10 +58,9 @@ $("#paper-btn").on("click", function (event) {
     // Creates local "temporary" object for holding rps data
     var papery = {
         player1: paper,
-        player2: twoChose,
     };
 
-    // Uploads employee data to the database
+    // Uploads paper object to database
     database.ref().set(papery);
 
     // Logs everything to console
@@ -82,10 +80,9 @@ $("#scissors-btn").on("click", function (event) {
     // Creates local "temporary" object for holding rps data
     var scissorsy = {
         player1: scissors,
-        player2: twoChose,
     };
 
-    // Uploads employee data to the database
+    // Uploads scissors object to database
     database.ref().set(scissorsy);
 
     // Logs everything to console
@@ -105,10 +102,9 @@ $("#rock2-btn").on("click", function (event) {
     // Creates local "temporary" object for holding rps data
     var rocky = {
         player2: rock,
-        player1: oneChose,
     };
 
-    // Uploads employee data to the database
+    // Uploads rock object to database
     database.ref().set(rocky);
 
     // Logs everything to console
@@ -129,10 +125,9 @@ $("#paper2-btn").on("click", function (event) {
     // Creates local "temporary" object for holding rps data
     var papery = {
         player2: paper,
-        player1: oneChose,
     };
 
-    // Uploads employee data to the database
+    // Uploads paper object to database
     database.ref().set(papery);
 
     // Logs everything to console
@@ -151,10 +146,9 @@ $("#scissors2-btn").on("click", function (event) {
     // Creates local "temporary" object for holding rps data
     var scissorsy = {
         player2: scissors,
-        player1: oneChose,
     };
 
-    // Uploads employee data to the database
+    // Uploads scissors object to database
     database.ref().set(scissorsy);
 
     // Logs everything to console
