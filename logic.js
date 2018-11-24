@@ -26,42 +26,42 @@ firebase.initializeApp(config);
 
 var database = firebase.database();
 
-
 //for chat
 // Capture Button Click
 $("#add-user").on("click", function (event) {
     event.preventDefault();
 
-    // YOUR TASK!!!
-    // Code in the logic for storing and retrieving the most recent user.
-    // Dont forget to provide initial data to your Firebase database.
+    // set the name value to the value in the html
     name = $("#name-input").val().trim();
 
     // Code for the push
     database.ref().push({
-      name: name,
+        name: name,
     });
-  });
+});
 
-  // Firebase watcher + initial loader HINT: .on("value")
-  database.ref().on("child_added", function (snapshot) {
+// Firebase watcher + initial loader HINT: .on("value")
+database.ref().on("child_added", function (snapshot) {
 
     // Log everything that's coming out of snapshot
     console.log(snapshot.val());
     console.log(snapshot.val().name);
-    
+
     // Change the HTML to reflect
     $("#name-display").text(snapshot.val().name);
 
     // Handle the errors
-  }, function (errorObject) {
+}, function (errorObject) {
     console.log("Errors handled: " + errorObject.code);
-  });
+});
 
 
 // Button for adding chosen rock
 $(document).on("click", "#rock-btn", function (event) {
     event.preventDefault();
+
+    // set the twoChose variable for check to the value in the html
+    twoChose = $("#test2").val().trim();
 
     oneChose = rock;
 
@@ -80,6 +80,9 @@ $(document).on("click", "#rock-btn", function (event) {
 $("#paper-btn").on("click", function (event) {
     event.preventDefault();
 
+    // set the twoChose variable for check to the value in the html
+    twoChose = $("#test2").val().trim();
+
     oneChose = paper;
 
     // track if player 1 already chose
@@ -95,6 +98,9 @@ $("#paper-btn").on("click", function (event) {
 // 2. Button for adding chosen scissors
 $("#scissors-btn").on("click", function (event) {
     event.preventDefault();
+
+    // set the twoChose variable for check to the value in the html
+    twoChose = $("#test2").val().trim();
 
     oneChose = scissors;
 
@@ -114,6 +120,9 @@ $("#scissors-btn").on("click", function (event) {
 $("#rock2-btn").on("click", function (event) {
     event.preventDefault();
 
+    // set the oneChose variable for check to the value in the html
+    oneChose = $("#test").val().trim();
+
     twoChose = rock;
 
     // track if player 2 already chose
@@ -129,6 +138,9 @@ $("#rock2-btn").on("click", function (event) {
 // 2. Button for adding chosen paper
 $("#paper2-btn").on("click", function (event) {
     event.preventDefault();
+
+    // set the oneChose variable for check to the value in the html
+    oneChose = $("#test").val().trim();
 
     twoChose = paper;
 
@@ -146,6 +158,9 @@ $("#paper2-btn").on("click", function (event) {
 // 2. Button for adding chosen scissors
 $("#scissors2-btn").on("click", function (event) {
     event.preventDefault();
+
+    // set the oneChose variable for check to the value in the html
+    oneChose = $("#test").val().trim();
 
     twoChose = scissors;
 
@@ -167,22 +182,39 @@ $("#scissors2-btn").on("click", function (event) {
 $(document).on("click", "#announce-winner", function (event) {
 
     database.ref().on("child_added", function (event) {
-        
 
-        
         // Change the HTML to reflect
         $("#test").text(event.val().player1);
         $("#test2").text(event.val().player2);
-        console.log($("#test"));
-        console.log($("#test2"));
-        
-        var oneChose = $("#test").val().trim();
-        var twoChose = $("#test2").val().trim();
 
-        console.log("One chose: " + oneChose);
-        console.log("Two chose: " + twoChose);
+        // current player value
+        var playeroneChose = event.val().player1;
+        var playertwoChose = event.val().player2;
 
-        
+        //actual value on both players
+        var numOne = $("#test").text();
+        var numTwo = $("#test2").text();
+        console.log("console log numOne: " + numOne);
+        console.log("console log numTwo: " + numTwo);
+
+        console.log(playeroneChose);
+        //knows what other player chose
+        console.log(playertwoChose);
+
+
+        // if player one wins show player1 as winner
+        if (numOne == "paper" && numTwo == "rock" || numOne == "scissors" && numTwo == "paper" || numOne == "rock" && numTwo == "scissors") {
+
+            // Change the HTML to reflect
+            $("#winnerIs").text("Player One");
+        } else if (numTwo == "paper" && numOne == "rock" || numTwo == "scissors" && numOne == "paper" || numTwo == "rock" && numOne == "scissors") {
+            // Change the HTML to reflect
+            $("#winnerIs").text("Player Two");
+        } else {
+            // Change the HTML to reflect
+            $("#winnerIs").text("Tie");
+            console.log("tie");
+        }
 
         // Handle the errors
     }, function (errorObject) {
@@ -190,23 +222,7 @@ $(document).on("click", "#announce-winner", function (event) {
     });
 
 
-    // check to see both inputs are there to make computations
-    console.log(oneChose);
-    console.log(twoChose);
 
-    // if player one wins show player1 as winner
-    if (oneChose == "paper" && twoChose == "rock" || oneChose == "scissors" && twoChose == "paper" || oneChose == "rock" && twoChose == "scissors") {
-
-        // Change the HTML to reflect
-        $("#winnerIs").text("Player One");
-    } else if (twoChose == "paper" && oneChose == "rock" || twoChose == "scissors" && oneChose == "paper" || twoChose == "rock" && oneChose == "scissors") {
-        // Change the HTML to reflect
-        $("#winnerIs").text("Player Two");
-    } else {
-        // Change the HTML to reflect
-        $("#winnerIs").text("Tie");
-        console.log("tie");
-    }
 });
 
 
