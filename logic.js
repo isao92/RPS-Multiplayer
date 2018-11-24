@@ -1,3 +1,6 @@
+//for chat
+var name = "";
+
 // intialize tracker for player one and two
 var playOne = false;
 var playTwo = false;
@@ -22,6 +25,39 @@ var config = {
 firebase.initializeApp(config);
 
 var database = firebase.database();
+
+
+//for chat
+// Capture Button Click
+$("#add-user").on("click", function (event) {
+    event.preventDefault();
+
+    // YOUR TASK!!!
+    // Code in the logic for storing and retrieving the most recent user.
+    // Dont forget to provide initial data to your Firebase database.
+    name = $("#name-input").val().trim();
+
+    // Code for the push
+    database.ref().push({
+      name: name,
+    });
+  });
+
+  // Firebase watcher + initial loader HINT: .on("value")
+  database.ref().on("child_added", function (snapshot) {
+
+    // Log everything that's coming out of snapshot
+    console.log(snapshot.val());
+    console.log(snapshot.val().name);
+    
+    // Change the HTML to reflect
+    $("#name-display").text(snapshot.val().name);
+
+    // Handle the errors
+  }, function (errorObject) {
+    console.log("Errors handled: " + errorObject.code);
+  });
+
 
 // Button for adding chosen rock
 $(document).on("click", "#rock-btn", function (event) {
