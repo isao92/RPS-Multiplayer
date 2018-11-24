@@ -97,7 +97,7 @@ $("#paper2-btn").on("click", function (event) {
     twoChose = paper;
 
     // track if player 2 already chose
-    playTwo = false;
+    playTwo = true;
 
 
     // Code for the push
@@ -114,7 +114,7 @@ $("#scissors2-btn").on("click", function (event) {
     twoChose = scissors;
 
     // track if player 2 already chose
-    playTwo = false;
+    playTwo = true;
 
     // Code for the push
     database.ref().push({
@@ -129,30 +129,24 @@ $("#scissors2-btn").on("click", function (event) {
 
 // make a function to check who one
 $(document).on("click", "#announce-winner", function (event) {
-    
+
     database.ref().on("child_added", function (event) {
         
 
-        console.log(event.val().player1);
-        console.log(event.val().player2);
-      
-      // Change the HTML to reflect
-      oneChose = $("#prueba").text(event.val().player1);
-      twoChose = $("#prueba2").text(event.val().player2);
-      console.log(event.val().player2);
+        
+        // Change the HTML to reflect
+        $("#test").text(event.val().player1);
+        $("#test2").text(event.val().player2);
+        console.log($("#test"));
+        console.log($("#test2"));
+        
+        var oneChose = $("#test").val().trim();
+        var twoChose = $("#test2").val().trim();
 
-        // if player one wins show player1 as winner
-        if (oneChose == "paper" && twoChose == "rock" || oneChose == "scissors" && twoChose == "paper" || oneChose == "rock" && twoChose == "scissors") {
+        console.log("One chose: " + oneChose);
+        console.log("Two chose: " + twoChose);
 
-            // Change the HTML to reflect
-            $("#winnerIs").text("Player One");
-        } else if (twoChose == "paper" && oneChose == "rock" || twoChose == "scissors" && oneChose == "paper" || twoChose == "rock" && oneChose == "scissors"){
-            // Change the HTML to reflect
-            $("#winnerIs").text("Player Two");
-        } else {
-            // Change the HTML to reflect
-            $("#winnerIs").text("Tie");
-        }
+        
 
         // Handle the errors
     }, function (errorObject) {
@@ -163,6 +157,20 @@ $(document).on("click", "#announce-winner", function (event) {
     // check to see both inputs are there to make computations
     console.log(oneChose);
     console.log(twoChose);
+
+    // if player one wins show player1 as winner
+    if (oneChose == "paper" && twoChose == "rock" || oneChose == "scissors" && twoChose == "paper" || oneChose == "rock" && twoChose == "scissors") {
+
+        // Change the HTML to reflect
+        $("#winnerIs").text("Player One");
+    } else if (twoChose == "paper" && oneChose == "rock" || twoChose == "scissors" && oneChose == "paper" || twoChose == "rock" && oneChose == "scissors") {
+        // Change the HTML to reflect
+        $("#winnerIs").text("Player Two");
+    } else {
+        // Change the HTML to reflect
+        $("#winnerIs").text("Tie");
+        console.log("tie");
+    }
 });
 
 
