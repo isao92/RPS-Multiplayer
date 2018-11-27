@@ -1,12 +1,14 @@
 .playerBlue{
     color: blue;
     background-color: aquamarine;
-
+    font-size: 1.5em;
 }
 
 .playerRed{
     color: darkred;
     background-color: antiquewhite;
+    font-size: 1.5em;
+
 }
 
 #winnerIs{
