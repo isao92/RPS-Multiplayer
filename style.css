@@ -1,0 +1,14 @@
+.playerBlue{
+    color: blue;
+    background-color: aquamarine;
+
+}
+
+.playerRed{
+    color: darkred;
+    background-color: antiquewhite;
+}
+
+#winnerIs{
+    font-size: 2em;
+}
