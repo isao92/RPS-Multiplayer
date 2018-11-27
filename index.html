@@ -17,43 +17,60 @@
 
 <body>
 
-    <form role="form">
-        <div class="form-group">
-            <label for="chat-input">Chat:</label>
-            <input class="form-control" id="chat-input" type="text">
-        </div>
-        <button class="btn btn-default" id="add-chat" type="submit">Submit</button>
-    </form>
+    <div class="jumbotron">
+        <h1 class="display-4">Rock Paper Scissors Online!</h1>
+        <p class="lead">Use the chat, who's player one and two?</p>
 
-    <div class="card-body" id="recent-member">
-        <h2 id="chat-display"></h2>
     </div>
 
-    <!-- show player 1 -->
-    <div class="player 1">Player 1</div>
-    <!-- show choices -->
-    <!-- buttons for rock paper scissors -->
-    <button id="rock-btn">Rock</button>
-    <button id="paper-btn">Paper</button>
-    <button id="scissors-btn">Scissors</button>
+
+    <div class="container">
+
+        <form role="form">
+            <div class="form-group">
+                <label for="chat-input">Chat:</label>
+                <input class="form-control" id="chat-input" type="text">
+            </div>
+            <button class="btn btn-info" id="add-chat" type="submit">Submit</button>
+        </form>
+
+        <div class="card-body" id="recent-member">
+            <h2 id="chat-display"></h2>
+        </div>
+        <div class="card col-3 mb-2">
+            <!-- show player 1 -->
+            <div class="player 1">Player 1</div>
+        </div>
+            <!-- show choices -->
+            <!-- buttons for rock paper scissors -->
+            <button id="rock-btn">Rock</button>
+            <button id="paper-btn">Paper</button>
+            <button id="scissors-btn">Scissors</button>
+       
 
 
-    <!-- player 2 -->
-    <div class="player 2">Player 2</div>
+        <div class="card col-3 mt-2 mb-2">
+            <!-- player 2 -->
+            <div class="player 2">Player 2</div>
+        </div>
 
+            <!-- buttons for rock paper scissors -->
+            <button id="rock2-btn">Rock</button>
+            <button id="paper2-btn">Paper</button>
+            <button id="scissors2-btn">Scissors</button>
+            <div></div>
+        
+            <div class="card mt-1"></div>
+        <!-- show winner -->
+        <button id="announce-winner">Announce Winner</button>
+        <div id="winnerIs"></div>
+        <div id="test"></div>
+        <div id="test2"></div>
+        <!-- play again -->
+        <div class="card mt-1 mb-2"></div>
+        <button id="playagain-btn">Play Again!</button>
 
-    <!-- buttons for rock paper scissors -->
-    <button id="rock2-btn">Rock</button>
-    <button id="paper2-btn">Paper</button>
-    <button id="scissors2-btn">Scissors</button>
-    <div></div>
-    <!-- show winner -->
-    <button id="announce-winner">Announce Winner</button>
-    <div id="winnerIs"></div>
-    <div id="test"></div>
-    <div id="test2"></div>
-    <!-- play again -->
-    <button id="playagain-btn">Play Again!</button>
+    </div>
 
 
 
