@@ -1,5 +1,5 @@
 //for chat
-var name = "";
+var chatText = "";
 
 // intialize tracker for player one and two
 
@@ -28,15 +28,15 @@ var database = firebase.database();
 
 //for chat
 // Capture Button Click
-$("#add-user").on("click", function (event) {
+$("#add-chat").on("click", function (event) {
     event.preventDefault();
 
     // set the name value to the value in the html
-    name = $("#name-input").val().trim();
+    chatText = $("#chat-input").val().trim();
 
     // Code for the push
     database.ref("/chat").push({
-        name: name,
+        chat: chatText,
     });
 });
 
@@ -45,10 +45,10 @@ database.ref("/chat").on("child_added", function (snapshot) {
 
     // Log everything that's coming out of snapshot
     console.log(snapshot.val());
-    console.log(snapshot.val().name);
+    console.log(snapshot.val().chat);
 
     // Change the HTML to reflect
-    $("#name-display").text(snapshot.val().name);
+    $("#chat-display").text(snapshot.val().chat);
 
     // Handle the errors
 }, function (errorObject) {
