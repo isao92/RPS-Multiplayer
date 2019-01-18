@@ -13,35 +13,35 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <!-- Firebase -->
     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-    
+
 </head>
 
 <body>
-    
+
     <div class="jumbotron text-center">
         <h1 class="display-4"><span class="slam">Rock Paper Scissors Online!</span></h1>
         <p class="lead">Use the chat, who's player one and two?</p>
-        
+
     </div>
-    
-    
+
+
     <div class="container">
-        
+
         <div class="card">
-            
-            
+
+
             <form role="form">
                 <div class="row mb-2 ml-2">
-                    
+
                     <div class="col-6">
                         <div class="form-group">
                             <label for="chat-input">Chat:</label>
                             <input class="form-control" id="chat-input" type="text">
                         </div>
-                        
+
                         <button class="btn btn-info" id="add-chat" type="submit">Submit</button>
                     </div>
-                    
+
                     <div class="col-5">
                         <div class="card-body" id="recent-member">
                             <h5 id="chat-display">
@@ -49,80 +49,82 @@
                             </h5>
                         </div>
                     </div>
-                    
+
                 </div>
             </form>
         </div>
-        
+
         <div class="row mt-2">
-            
-            <div class="col-sm-6">
-                <div class="card">
-                    
-                    <div class="row">
-                        <div class="playerBlue">Player 1</div>
-                    </div>
-                    
-                    <div class="row">
-                        <!-- buttons for rock paper scissors -->
-                        <div class="col-sm-4">
-                            <button id="rock-btn"><img src="assets/images/rock-paper-scissors-296854_640.png"></button>
+
+                <div class="col-sm-6">
+                    <div class="card">
+
+                        <div class="row">
+                            <div class="playerBlue">Player 1</div>
                         </div>
-                        <div class="col-sm-4">
-                            <button id="paper-btn"><img src="assets/images/rock-paper-scissors-296855_640.png"></button>
+
+                        <div class="row">
+                            <!-- buttons for rock paper scissors -->
+                            <div class="col-sm-4">
+                                <button id="rock-btn"><img src="assets/images/rock-paper-scissors-296854_640.png"></button>
+                            </div>
+                            <div class="col-sm-4">
+                                <button id="paper-btn"><img src="assets/images/rock-paper-scissors-296855_640.png"></button>
+                            </div>
+                            <div class="col-sm-4">
+                                <button id="scissors-btn"><img src="assets/images/rock-paper-scissors-296853_640.png"></button>
+                            </div>
                         </div>
-                        <div class="col-sm-4">
-                            <button id="scissors-btn"><img src="assets/images/rock-paper-scissors-296853_640.png"></button>
-                        </div>
-                    </div>
-                    
-                </div>
-            </div>
-            
-            
-            <div class="col-sm-6">
-                <div class="card">
-                    <div class="row">
-                        <div class="playerRed">Player 2</div>
-                    </div>
-                    
-                    <div class="row">
-                        <!-- buttons for rock paper scissors -->
-                        
-                        <div class="col-sm-4">
-                            <button id="rock2-btn"><img src="assets/images/rock-paper-scissors-296854_640.png"></button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button id="paper2-btn"><img src="assets/images/rock-paper-scissors-296855_640.png"></button>
-                        </div>
-                        <div class="col-sm-4">
-                            <button id="scissors2-btn"><img src="assets/images/rock-paper-scissors-296853_640.png"></button>
-                        </div>
+
                     </div>
                 </div>
+
+
+                <div class="col-sm-6">
+                    <div class="card">
+                        <div class="row">
+                            <div class="playerRed">Player 2</div>
+                        </div>
+
+                        <div class="row">
+                            <!-- buttons for rock paper scissors -->
+
+                            <div class="col-sm-4">
+                                <button id="rock2-btn"><img src="assets/images/rock-paper-scissors-296854_640.png"></button>
+                            </div>
+                            <div class="col-sm-4">
+                                <button id="paper2-btn"><img src="assets/images/rock-paper-scissors-296855_640.png"></button>
+                            </div>
+                            <div class="col-sm-4">
+                                <button id="scissors2-btn"><img src="assets/images/rock-paper-scissors-296853_640.png"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
-        </div>
-        
-        
-        <div class="card mt-2">
-            <!-- show winner -->
-            <button id="announce-winner">Announce Winner</button>
-            <div id="winnerIs"></div>
-            <div clas="row">
-                <div>Player 1: </div>
-                <div id="test"></div>
-                <div> Player 2: </div>
-                <div id="test2"></div>
+
+
+            <div class="card mt-2">
+                <!-- show winner -->
+                <button id="announce-winner">Announce Winner</button>
+                <div id="winnerIs"></div>
+                <div clas="row">
+                    <div>Player 1: </div>
+                    <div id="test"></div>
+                    <div> Player 2: </div>
+                    <div id="test2"></div>
+                </div>
+                <!-- play again -->
+                <div class="card mt-1 mb-2"></div>
+                <button id="playagain-btn">Play Again!</button>
             </div>
-            <!-- play again -->
-            <div class="card mt-1 mb-2"></div>
-            <button id="playagain-btn">Play Again!</button>
-        </div>
         
+
     </div>
-    
-    
-    
+
+
+
     <script src="logic.js"></script>
 </body>
 

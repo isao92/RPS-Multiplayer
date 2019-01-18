@@ -1,3 +1,5 @@
+
+
 img{
   width:100%;
 }
@@ -6,7 +8,6 @@ body
 {
   background: #111;
   margin: 0;
-  overflow: hidden;
   animation: rattle 0.2s;
   animation-delay: 1s;
 }
@@ -20,7 +21,6 @@ body
   font-family: "Source Sans Pro", sans-serif;
   font-size: .5em;
   font-weight: 900;
-  position: relative;
   text-align: center;
   text-transform: uppercase;
   
@@ -83,4 +83,25 @@ body
 
 #winnerIs{
     font-size: 2em;
+}
+
+
+/* On screens that are 992px or less, set the background color to blue */
+@media screen and (max-width: 992px) {
+  #rock-btn, #paper-btn, #scissors-btn, #rock2-btn, #paper2-btn, #scissors2-btn{
+    width: 80%;
+  }
+}
+
+/* On screens that are 600px or less, set the background color to olive */
+@media screen and (max-width: 575px) {
+  #rock-btn, #paper-btn, #scissors-btn, #rock2-btn, #paper2-btn, #scissors2-btn{
+    width: 32%;
+    float: left;
+  }
+
+  .col-sm-4{
+    float:left;
+    margin-left: 35%;
+  }
 }
